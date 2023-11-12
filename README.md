@@ -42,18 +42,22 @@ cloud!
   previamente instalados los requisitos de software en sus laptops.
 * Esta preparación previa garantizará que puedas participar activamente en todos los laboratorios del taller,
   maximizando tu experiencia de aprendizaje
-* `Para realizar el despliegue en la nube con Ansible y OpenTofu, se requiere contar con una cuenta en
+* `Para realizar el despliegue en la nube con OpenTofu y Ansible, se requiere contar con una cuenta en
   DigitalOcean. En caso de no poseer una cuenta, podrás observar cómo orquestamos todo el despliegue de la aplicación en
   la nube durante el taller.`
 
 ## Tecnologías Clave:
 
-- **Spring Boot:** Framework de desarrollo para crear aplicaciones Java de manera rápida y sencilla.
-- **Vaadin Flow:** Framework para la construcción de interfaces de usuario en Java.
-- **Docker:** Plataforma de contenerización para el desarrollo, envío y ejecución de aplicaciones.
-- **Traefik:** Servidor proxy y balanceador de carga para aplicaciones contenerizadas.
-- **OpenTofu:** Herramienta para la creación y administración de infraestructuras como código.
-- **Ansible:** Herramienta de automatización para la configuración y administración de sistemas.
+- [Spring Boot](https://spring.io/projects/spring-boot): Framework de desarrollo para crear aplicaciones Java de manera
+  rápida y sencilla.
+- [Vaadin Flow](https://vaadin.com/flow): Framework para la construcción de interfaces de usuario en Java.
+- [Docker](https://www.docker.com/): Plataforma de contenerización para el desarrollo, envío y ejecución de
+  aplicaciones.
+- [Traefik](https://traefik.io/traefik/): Servidor proxy y balanceador de carga para aplicaciones contenerizadas.
+- [OpenTofu](https://opentofu.org/): Herramienta para la creación y administración de infraestructuras como
+  código `Infrastructure as Code (IaC)`.
+- [Ansible](https://www.ansible.com/): Herramienta de automatización para la configuración y administración de sistemas.
+- [DigitalOcean](https://www.digitalocean.com/): Proporciona servicios de infraestructura en la nube.
 
 ## Estructura del proyecto
 
@@ -87,8 +91,8 @@ Configurar OpenTofu para la creación de recursos de infraestructura.
 Utilizar Ansible para la configuración y administración de sistemas.
 Implementar una solución completa de despliegue seguro y escalable de aplicaciones web.
 
-No te pierdas esta oportunidad de aprender y crecer en el mundo de la tecnología. Únete a nosotros y prepárate para
-llevar tus habilidades de desarrollo al futuro.
+_**No te pierdas esta oportunidad de aprender y crecer en el mundo de la tecnología. Únete a nosotros y prepárate para
+llevar tus habilidades de desarrollo al futuro.**_
 
 ## Agradecimientos
 
