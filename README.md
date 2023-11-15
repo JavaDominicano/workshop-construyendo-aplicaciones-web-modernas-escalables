@@ -1,12 +1,6 @@
 # Construyendo Aplicaciones Web Modernas y Escalables con Java
+![Workshop](https://github.com/fredpena/workshop-construyendo-aplicaciones-web-modernas-escalables/assets/5680906/62b84591-0831-420b-a364-b9e9d1a93327)
 
-### Taller: Construyendo Aplicaciones Web Modernas y Escalables con Java
-
-#### Fecha: 25 de noviembre de 2023
-
-#### Hora: 10:00 - 14:00 (GMT-4)
-
-#### Lugar:
 
 ## Descargo de Responsabilidad:
 
