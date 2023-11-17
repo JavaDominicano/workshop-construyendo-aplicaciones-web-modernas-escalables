@@ -1,12 +1,24 @@
 # Construyendo Aplicaciones Web Modernas y Escalables con Java
+![Workshop](https://github.com/fredpena/workshop-construyendo-aplicaciones-web-modernas-escalables/assets/5680906/62b84591-0831-420b-a364-b9e9d1a93327)
 
-### Taller: Construyendo Aplicaciones Web Modernas y Escalables con Java
 
-#### Fecha: 25 de noviembre de 2023
+## Descargo de Responsabilidad:
 
-#### Hora: 10:00 - 14:00 (GMT-4)
-
-#### Lugar:
+* La información proporcionada en esta presentación tiene como objetivo educativo y se basa en experiencia personal y
+  conocimientos actuales. Si bien se ha hecho todo lo posible para garantizar la precisión y la actualidad de la
+  información presentada, no se puedo garantizar su exactitud completa.
+* El uso de las tecnologías mencionadas, está sujeto a los términos y condiciones de cada herramienta. Es
+  responsabilidad
+  del usuario realizar su propia investigación y cumplir con las directrices y políticas de cada tecnología antes de
+  implementarlas en su entorno de producción.
+* Además, cabe señalar que las mejores prácticas y las soluciones presentadas en esta presentación pueden variar según
+  los
+  requisitos y las circunstancias específicas de cada proyecto. Recomiendo encarecidamente realizar pruebas exhaustivas
+  y
+  consultar con profesionales capacitados antes de implementar cualquier solución en un entorno de producción.
+* En resumen, mientras que esta presentación busca proporcionar información útil y práctica, el uso de las tecnologías y
+  las decisiones de implementación son responsabilidad del usuario final. No se asume ninguna responsabilidad por los
+  resultados derivados de la aplicación de los conceptos discutidos en esta presentación.
 
 ## Descripción General:
 
@@ -18,6 +30,19 @@ llevar tus proyectos al siguiente nivel.
 
 ¡Te invitamos a participar y descubrir cómo llevar tu aplicación a nuevos horizontes en el entorno
 cloud!
+
+## Acerca de los Autores:
+
+### Freddy Peña
+
+* Java Developer, y Profesor por vocación.
+* Fundador e Ingeniero de Software en [Alphnology](https://alphnology.com/).
+* +10 años de experiencia en desarrollo de software en el ecosistema Java.
+* Profesor de la Escuela de Ingeniería en Computación y Telecomunicaciones, PUCMM.
+* Miembro de la Comunidad [Java Dominicano](https://site.javadominicano.org/).
+* Co-organizador de [JConf Dominicana](https://jconfdominicana.org/).
+
+### Hector Ventura
 
 ## Requisitos:
 
