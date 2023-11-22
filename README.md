@@ -55,6 +55,7 @@ cloud!
 * Conocimientos básicos de programación en Java.
 * Familiaridad con el desarrollo de aplicaciones web.
 * Laptop con capacidad para ejecutar entornos de desarrollo y máquinas virtuales.
+* Conocimiento Git
 * Software instalado:
     * [Open JDK](https://adoptium.net/temurin/releases/?package=jdk&version=17) 17 o superior.
         * Si utiliza [SDKMAN](https://sdkman.io/install), puede utilizar el comando `sdk install java 17-tem`
@@ -124,6 +125,11 @@ Implementar una solución completa de despliegue seguro y escalable de aplicacio
 
 _**No te pierdas esta oportunidad de aprender y crecer en el mundo de la tecnología. Únete a nosotros y prepárate para
 llevar tus habilidades de desarrollo al futuro.**_
+
+> Note: Los laborotiros de IaC se van ejectur en el cloud, en este caso Digital Ocean. 
+Se required una cuenta Digital Ocean, si aun no la tiene puede registrarse y recibir un bono de $200 dolares por 2 meses con este [link](https://m.do.co/c/823262eb863f). 
+
+
 
 ## Agradecimientos
 
