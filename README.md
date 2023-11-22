@@ -69,14 +69,16 @@ cloud!
     * [Ansible](https://docs.ansible.com/)
 
 **Nota**:
-
-* Para garantizar una experiencia fluida durante el taller, agradecemos que todos los participantes aseguren tener
+> Para garantizar una experiencia fluida durante el taller, agradecemos que todos los participantes aseguren tener
   previamente instalados los requisitos de software en sus laptops.
-* Esta preparación previa garantizará que puedas participar activamente en todos los laboratorios del taller,
-  maximizando tu experiencia de aprendizaje
-* `Para realizar el despliegue en la nube con OpenTofu y Ansible, se requiere contar con una cuenta en
-  DigitalOcean. En caso de no poseer una cuenta, podrás observar cómo orquestamos todo el despliegue de la aplicación en
-  la nube durante el taller.`
+
+> Esta preparación previa garantizará que puedas participar activamente en todos los laboratorios del taller,
+  maximizando tu experiencia de aprendizaje.
+
+> Para realizar el despliegue en la nube con OpenTofu y Ansible, se requiere contar con una cuenta en
+  DigitalOcean, si aun no la tienes puede registrarse y recibir un bono de $200 dolares por 2 meses con este [link](https://m.do.co/c/823262eb863f).
+
+> Queremos destacar que este taller no persigue convertirte en un experto en ninguna de las tecnologías mencionadas, pero sí busca avivar tu interés en aquellas herramientas que pueden transformar tu vida profesional.
 
 ## Tecnologías Clave:
 
@@ -125,10 +127,6 @@ Implementar una solución completa de despliegue seguro y escalable de aplicacio
 
 _**No te pierdas esta oportunidad de aprender y crecer en el mundo de la tecnología. Únete a nosotros y prepárate para
 llevar tus habilidades de desarrollo al futuro.**_
-
-> Note: Los laborotiros de IaC se van ejectur en el cloud, en este caso Digital Ocean. 
-Se required una cuenta Digital Ocean, si aun no la tiene puede registrarse y recibir un bono de $200 dolares por 2 meses con este [link](https://m.do.co/c/823262eb863f). 
-
 
 
 ## Agradecimientos
