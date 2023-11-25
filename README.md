@@ -20,6 +20,9 @@
   las decisiones de implementación son responsabilidad del usuario final. No se asume ninguna responsabilidad por los
   resultados derivados de la aplicación de los conceptos discutidos en esta presentación.
 
+### Recurso
+[Presentación - Google Slide](https://docs.google.com/presentation/d/1KREJ9HYVNhjlsPtT80eNOl_Gw44JQwM4ljalsqL9BAA/edit?usp=sharing)
+
 ## Descripción General:
 
 Únete a nuestra comunidad Java Dominicana en el taller "Construyendo Aplicaciones Web Modernas y Escalables con Java",
