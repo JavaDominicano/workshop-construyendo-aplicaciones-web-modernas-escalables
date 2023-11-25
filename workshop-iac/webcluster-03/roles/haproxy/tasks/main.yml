@@ -1,0 +1,14 @@
+---
+# tasks file for haproxy
+- name: Instalando HAProxy
+  apt:
+    update_cache: yes
+    pkg:
+      - haproxy
+
+- name: Configurando HAProxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify:
+    - Reiniciar HAProxy

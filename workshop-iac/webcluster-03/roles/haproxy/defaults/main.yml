@@ -1,0 +1,6 @@
+---
+# defaults file for haproxy
+haproxy_width_stats: false
+haproxy_with_auth: false
+haproxy_user: admin
+haproxy_password: 12345
