@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  traefik:
+    image: "traefik:v2.8"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.email=alphnology@gmail.com"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  app:
+    image: alphnology/workshop:1.0.1
+    environment:
+      - DB_HOST=mariadb
+      - DB_PASSWORD={{ db_password }}
+      - DB_NAME={{ db_name }}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`{{ app_domain }}`)"
+      - "traefik.http.routers.app.service=app-service"
+      - "traefik.http.routers.app.entrypoints=websecure"
+      - "traefik.http.services.app-service.loadbalancer.server.port=50380"
+      - "traefik.http.routers.app.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.onlyhttps.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.onlyhttps.redirectscheme.permanent=true"
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD={{ db_password }}
+      - MYSQL_DATABASE={{ db_name }}
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_PASSWORD={{ db_password }}
+
+volumes:
+  db_data:

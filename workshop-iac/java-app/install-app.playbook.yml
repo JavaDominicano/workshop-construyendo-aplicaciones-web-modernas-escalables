@@ -1,0 +1,23 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: server
+  tasks:
+    - name: Create required directory
+      file: 
+        path: /usr/local/javadominicando
+        state: directory
+        mode: '0755'
+
+    - name: Render app config
+      template:
+        src: template/docker-compose.yml.j2
+        dest: /usr/local/javadominicando/docker-compose.yml
+
+    - name: Run `docker-compose up` again
+      shell: docker compose up -d
+      args:
+        chdir: /usr/local/javadominicando
+      register: output
+
+    - debug:
+        var: output

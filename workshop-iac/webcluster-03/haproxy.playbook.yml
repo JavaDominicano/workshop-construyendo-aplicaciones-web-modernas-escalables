@@ -1,0 +1,6 @@
+---
+- name: Configurando el cluster
+  hosts: proxies
+  roles:
+    - haproxy
+

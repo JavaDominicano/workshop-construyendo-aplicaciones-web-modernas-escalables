@@ -1,0 +1,45 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: server
+  tasks:
+    - name: Remove default docker packages
+      apt: 
+        pkg:
+        - docker
+        - docker-engine
+        - docker.io
+        - containerd
+        - runc
+        state: absent
+      # when: 
+      #   - ansible_facts['ansible_os_family'] == "Debian"
+      #   - ansible_facts['ansible_distribution_major_version'] != "12"
+
+    - name: Install required packages
+      apt: 
+        pkg:
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+        update-cache: yes
+
+    - name: Add Docker's official GPG key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/debian bookworm stable
+        filename: docker
+        state: present
+
+    - name: Install docker
+      apt: 
+        pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-compose-plugin
+        update-cache: yes

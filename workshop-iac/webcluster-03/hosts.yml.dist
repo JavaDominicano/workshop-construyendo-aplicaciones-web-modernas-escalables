@@ -1,0 +1,21 @@
+# HAProxy
+proxies:
+  vars:
+    haproxy_width_stats: true
+    haproxy_with_auth: true
+    haproxy_user: admin
+    haproxy_password: 12345
+
+  hosts:
+    proxy01:
+      ansible_host: 192.168.1.239
+
+# Nginx Servers
+webservers:
+  hosts:
+    nginx-01:
+      ansible_host: 192.168.1.243
+    nginx-02:
+       ansible_host: 192.168.1.253
+    nginx-03:
+      ansible_host: 192.168.1.249
