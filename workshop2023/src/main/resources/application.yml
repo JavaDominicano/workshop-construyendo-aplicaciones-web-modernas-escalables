@@ -1,0 +1,53 @@
+logging:
+  level:
+    org:
+      atmosphere: warn
+
+server:
+  port: ${PORT:50380}
+
+vaadin:
+  whitelisted-packages: com.vaadin,org.vaadin,dev.hilla,org.javadominicano.workshop
+  # Launch the default browser when starting the application in development mode
+  launch-browser: true
+
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: [ classpath:db/migration/prod ] #, filesystem:./sql
+    placeholderReplacement: false
+  jpa:
+    show-sql: false
+
+  mustache:
+    check-template-location: false
+
+  # MariaDB configuration.
+  datasource:
+    password: ${DB_PASSWORD:p@ssw0rd}
+    username: ${DB_USER:root}
+    url: jdbc:mariadb://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:workshop}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  flyway:
+    enabled: true
+    locations: [ classpath:db/migration/prod, classpath:db/migration/dev ] #, filesystem:./sql
+  jpa:
+    hibernate:
+      ddl-auto: none #none #update #create-drop
+    show-sql: false
+
+  devtools:
+    restart:
+      enabled: true  # Set to enable hot deployment
+      additional-paths: src/main/java # restart directory
+      quiet-period: 1s
+      poll-interval: 2s
+      log-condition-evaluation-delta: false
+

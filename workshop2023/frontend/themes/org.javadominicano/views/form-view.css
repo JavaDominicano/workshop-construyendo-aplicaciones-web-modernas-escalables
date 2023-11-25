@@ -1,0 +1,11 @@
+.form-view {
+    display: block;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 var(--lumo-space-l);
+}
+
+.form-view h3 {
+    margin-bottom: var(--lumo-space-xs);
+    margin-top: var(--lumo-space-l);
+}

@@ -1,0 +1,14 @@
+@import url('./main-layout.css');
+@import url('./views/master-detail-view.css');
+
+
+/* Global style values */
+/*html {*/
+/*    --lumo-primary-color: green;*/
+/*    --lumo-font-family: "Roboto";*/
+/*}*/
+
+/*!* Scoped to a type of component *!*/
+/*vaadin-button {*/
+/*    --lumo-font-family: "Courier";*/
+/*}*/

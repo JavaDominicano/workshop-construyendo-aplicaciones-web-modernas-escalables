@@ -1,0 +1,94 @@
+version: "3.9"
+
+services:
+  traefik:
+    image: "traefik:v2.10.3"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      #- "--entrypoints.websecure.address=:443"
+      #- "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      #- "--certificatesresolvers.letsencrypt.acme.email=me@fredpena.dev"
+      #- "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.address=:80"
+      #- "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      #- "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      #- "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    healthcheck:
+      test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=workshop
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_PASSWORD=p@ssw0rd
+
+  whoami:
+    image: traefik/whoami
+    command:
+      # It tells whoami to start listening on 2001 instead of 80
+      - --port=2001
+      - --name=iamfoo
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.workshop-whoami.rule=Host(`whoami.workshop.local`)"
+      - "traefik.http.routers.workshop-whoami.service=workshop-whoami-service"
+      #- "traefik.http.routers.workshop-whoami.entrypoints=websecure"
+      - "traefik.http.routers.workshop-whoami.entrypoints=web"
+      - "traefik.http.services.workshop-whoami-service.loadbalancer.server.port=2001"
+      #- "traefik.http.routers.workshop-whoami.tls.certresolver=letsencrypt"
+      #- "traefik.http.middlewares.onlyhttps.redirectscheme.scheme=https"
+      #- "traefik.http.middlewares.onlyhttps.redirectscheme.permanent=true"
+
+  workshopapp:
+    #image: alphnology/workshop:1.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+        #ports:
+      #- "41485:41485"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      - DB_HOST=mariadb
+      - DB_USER=root
+      - DB_PASSWORD=p@ssw0rd
+      - DB_PORT=3306
+      - DB_NAME=workshop
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.workshop.rule=Host(`workshop.local`)"
+      - "traefik.http.routers.workshop.service=workshop-service"
+      #- "traefik.http.routers.workshop.entrypoints=websecure"
+      - "traefik.http.routers.workshop.entrypoints=web"
+      - "traefik.http.services.workshop-service.loadbalancer.server.port=50380"
+      #- "traefik.http.routers.workshop.tls.certresolver=letsencrypt"
+      #- "traefik.http.middlewares.onlyhttps.redirectscheme.scheme=https"
+      #- "traefik.http.middlewares.onlyhttps.redirectscheme.permanent=true"
+
+
+volumes:
+  db_data:
