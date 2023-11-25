@@ -47,9 +47,9 @@ cloud!
 
 ### Hector Ventura
 
-* Ingeniro en Sistemas.
-* +10 años de experiencia en arquitectura y desarrollo de sistemas informaticos.
-* Altualmente trabajo para Consensus Cloud Solutions
+* Ingeniero en Sistemas.
+* +10 años de experiencia en arquitectura y desarrollo de sistemas informáticos.
+* Actualmente trabajo para Consensus Cloud Solutions
 * Tutor de Java y Linux en [Wyzant](https://www.wyzant.com/match/tutor/88372402).
 * Miembro de la Comunidad [Java Dominicano](https://site.javadominicano.org/).
 
