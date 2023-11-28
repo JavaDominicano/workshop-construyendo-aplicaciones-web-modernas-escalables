@@ -13,8 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Route("lifecycle")
 public class LifecycleView extends Div implements BeforeEnterObserver {
-
-
+    //https://github.com/vaadin/built-with-vaadin
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         log.info("BeforeEnterEvent");

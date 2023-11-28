@@ -1,6 +1,6 @@
 # Construyendo Aplicaciones Web Modernas y Escalables con Java
-![Workshop](https://github.com/fredpena/workshop-construyendo-aplicaciones-web-modernas-escalables/assets/5680906/62b84591-0831-420b-a364-b9e9d1a93327)
 
+![Workshop](https://github.com/fredpena/workshop-construyendo-aplicaciones-web-modernas-escalables/assets/5680906/62b84591-0831-420b-a364-b9e9d1a93327)
 
 ## Descargo de Responsabilidad:
 
@@ -21,6 +21,7 @@
   resultados derivados de la aplicación de los conceptos discutidos en esta presentación.
 
 ### Recurso
+
 [Presentación - Google Slide](https://docs.google.com/presentation/d/1KREJ9HYVNhjlsPtT80eNOl_Gw44JQwM4ljalsqL9BAA/edit?usp=sharing)
 
 ## Descripción General:
@@ -73,15 +74,17 @@ cloud!
 
 **Nota**:
 > Para garantizar una experiencia fluida durante el taller, agradecemos que todos los participantes aseguren tener
-  previamente instalados los requisitos de software en sus laptops.
+> previamente instalados los requisitos de software en sus laptops.
 
 > Esta preparación previa garantizará que puedas participar activamente en todos los laboratorios del taller,
-  maximizando tu experiencia de aprendizaje.
+> maximizando tu experiencia de aprendizaje.
 
 > Para realizar el despliegue en la nube con OpenTofu y Ansible, se requiere contar con una cuenta en
-  DigitalOcean, si aun no la tienes puede registrarse y recibir un bono de $200 dolares por 2 meses con este [link](https://m.do.co/c/823262eb863f).
+> DigitalOcean, si aun no la tienes puede registrarse y recibir un bono de $200 dolares por 2 meses con
+> este [link](https://m.do.co/c/823262eb863f).
 
-> Queremos destacar que este taller no persigue convertirte en un experto en ninguna de las tecnologías mencionadas, pero sí busca avivar tu interés en aquellas herramientas que pueden transformar tu vida profesional.
+> Queremos destacar que este taller no persigue convertirte en un experto en ninguna de las tecnologías mencionadas,
+> pero sí busca avivar tu interés en aquellas herramientas que pueden transformar tu vida profesional.
 
 ## Tecnologías Clave:
 
@@ -115,11 +118,15 @@ principales, enrutamiento y navegación, ciclo de vida de navegación, disposici
 anidados, manejo de excepciones de enrutador, plantillas de ruta, creación de UI en aplicaciones Vaadin, creación de
 componentes, visión general de estilos, enlace de datos, seguridad y despliegue en producción.
 
+[Enlace](https://github.com/JavaDominicano/workshop-construyendo-aplicaciones-web-modernas-escalables/tree/main/workshoplab1)
+
 ### Laboratorio 2: Despliegue Local con Docker y Traefik
 
 Utilizar Docker para contenerizar la aplicación.
 Implementar Traefik como servidor proxy y balanceador de carga.
 Realizar un despliegue local de la aplicación y gestionar su funcionamiento.
+
+[Enlace](https://github.com/JavaDominicano/workshop-construyendo-aplicaciones-web-modernas-escalables/tree/main/workshop2023)
 
 ### Laboratorio 3: Despliegue Seguro y Escalable con Docker, Traefik, OpenTofu y Ansible
 
@@ -128,9 +135,10 @@ Configurar OpenTofu para la creación de recursos de infraestructura.
 Utilizar Ansible para la configuración y administración de sistemas.
 Implementar una solución completa de despliegue seguro y escalable de aplicaciones web.
 
+[Enlace](https://github.com/JavaDominicano/workshop-construyendo-aplicaciones-web-modernas-escalables/tree/main/workshop-iac)
+
 _**No te pierdas esta oportunidad de aprender y crecer en el mundo de la tecnología. Únete a nosotros y prepárate para
 llevar tus habilidades de desarrollo al futuro.**_
-
 
 ## Agradecimientos
 

@@ -1,3 +1,9 @@
+# El propósito de este archivo docker-compose es facilitar el despliegue de la base de datos cuando se encuentren
+# en modo de desarrollo, eliminando la necesidad de instalar manualmente el motor de la base de datos.
+# Es crucial destacar que el sistema está configurado con Flyway. Por lo tanto, antes de iniciar la aplicación,
+# es necesario ejecutar este docker-compose para instalar la base de datos y permitir que Flyway ejecute su script inicial.
+# Este enfoque simplificado garantiza una configuración eficiente del entorno de desarrollo, asegurando que la
+# aplicación esté lista para funcionar de manera óptima.
 version: "3.9"
 services:
   mariadb:

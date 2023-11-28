@@ -1,0 +1,44 @@
+# El propósito de este archivo docker-compose-prod es permitir la ejecución de la aplicación en modo de producción.
+# En este escenario, se cuentan con dos servicios en funcionamiento: mariadb como motor de la base de datos y workshopapp,
+# que es la aplicación generada a través del Dockerfile. Es imperativo compilar la aplicación en modo producción antes
+# de ejecutar este docker-compose-prod, utilizando el comando "mvn clean package -Pproduction". Este proceso garantiza
+# que la aplicación esté preparada para su despliegue en un entorno de producción, optimizando su rendimiento
+# y asegurando una ejecución exitosa.
+version: "3.9"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    healthcheck:
+      test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    volumes:
+      - ./db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=workshop
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_PASSWORD=p@ssw0rd
+
+  workshopapp:
+    #image: alphnology/workshop:1.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+      #ports:
+      #- "41485:41485"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      - DB_HOST=mariadb
+      - DB_USER=root
+      - DB_PASSWORD=p@ssw0rd
+      - DB_PORT=3306
+      - DB_NAME=workshop

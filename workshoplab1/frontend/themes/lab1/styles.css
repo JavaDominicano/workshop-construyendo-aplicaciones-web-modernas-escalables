@@ -2,13 +2,12 @@
 @import url('./views/master-detail-view.css');
 
 
-/* Global style values */
-/*html {*/
-/*    --lumo-primary-color: green;*/
-/*    --lumo-font-family: "Roboto";*/
-/*}*/
+html {
+    --lumo-primary-color: green;
+    --lumo-font-family: "Roboto";
+}
 
-/*!* Scoped to a type of component *!*/
-/*vaadin-button {*/
-/*    --lumo-font-family: "Courier";*/
-/*}*/
+/* Scoped to a type of component */
+vaadin-button {
+    --lumo-font-family: "Courier";
+}
