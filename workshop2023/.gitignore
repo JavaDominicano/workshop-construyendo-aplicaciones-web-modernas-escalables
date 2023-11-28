@@ -1,4 +1,5 @@
 /target/
+db_data
 .idea/
 .vscode/
 .settings
