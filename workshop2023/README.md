@@ -2,13 +2,26 @@
 
 ### Ejecutando la aplicación
 
-El proyecto es un proyecto estándar de Maven. Para ejecutarlo desde la línea de comando,
-escriba `make start` (Mac & Linux), luego abra http://localhost:50380 en su navegador.
+El proyecto sigue la estructura estándar de Maven. Para ejecutarlo desde la línea de comando,
+escriba `make start` (Mac & Linux) o `.\make.exe start` (Windows), luego abra http://localhost:50380 en su navegador.
 
-El comando `make start`, es una forma eficiente de automatización del proceso de configuración y ejecución
-de la aplicación en un entorno Docker. Esta abstracción simplifica enormemente, ya que
-permite poner en marcha la aplicación sin tener que preocuparse por los detalles específicos de la configuración de
-la aplicación y otros procesos de inicio.
+Es necesario tener instalado [Docker](https://www.docker.com/get-started/). Además, para
+ejecutar el comando `make start`, es necesario contar con la herramienta [make](https://www.gnu.org/software/make/).
+Estos son los requisitos para poder ejecutar este proyecto.
+
+El comando `make start` representa una forma eficiente de automatizar el proceso de configuración y ejecución de la
+aplicación en un entorno Docker. Esta abstracción simplifica enormemente el despliegue, ya que permite poner en marcha
+la aplicación sin tener que preocuparse por los detalles específicos de la configuración y otros procesos de inicio.
+
+En este comando, están integrados los pasos necesarios, como `docker-compose down -v` para detener y limpiar los
+contenedores existentes, `docker-compose up -d` para iniciar los servicios en segundo plano, y `mvn` para compilar y
+ejecutar la aplicación en un ambiente de prueba. Esto facilita significativamente el despliegue de la aplicación,
+proporcionando una única y simple entrada para llevar a cabo el proceso completo de manera eficiente. En caso de no contar con make peude ejecutar los comando uno a uno.
+
+También puede importar el proyecto a su IDE de elección como lo haría con cualquier
+Proyecto Maven. Leer más
+en [cómo importar proyectos de Vaadin a diferentes IDE](https://vaadin.com/docs/latest/guide/step-by-step/importing) (
+Eclipse, IntelliJ IDEA, NetBeans, y VS Code).
 
 #### Credenciales:
 
@@ -18,32 +31,53 @@ la aplicación y otros procesos de inicio.
 | f.pena      | 1234f          | 
 | h.ventura   | 1234f          |
 
-También puede importar el proyecto a su IDE de elección como lo haría con cualquier
-Proyecto Maven. Leer más
-en [cómo importar proyectos de Vaadin a diferentes IDE](https://vaadin.com/docs/latest/guide/step-by-step/importing) (
-Eclipse, IntelliJ IDEA, NetBeans, y VS Code).
-
 ## Implementación en producción
 
-Para crear una compilación de producción, llame a `mvnw clean package -Pproduction` (Windows),
+Para crear una compilación de producción, ejecute el comando `mvnw clean package -Pproduction` (Windows),
 o `./mvnw clean package -Pproduction` (Mac y Linux).
 Esto creará un archivo JAR con todas las dependencias y recursos de front-end,
-listo para ser implementado. El archivo se puede encontrar en la carpeta `target` una vez que se completa la
+listo para ser implementado. El ejecutable se puede encontrar en la carpeta `target` una vez que se completa la
 compilación.
 
 Una vez creado el archivo JAR, puede ejecutarlo usando
 `java -jar target/workshop.jar`
 
-## Implementación usando Docker
+_Es importante destacar que, para la ejecución exitosa de este proyecto en este escenario, es necesario proporcionar al
+servidor de la base
+de datos con las configuraciones correspondientes en el archivo `application.yml`. Asegúrese de que estas
+configuraciones
+estén correctamente definidas para garantizar la conexión adecuada con el motor de la base de datos durante la ejecución
+de la aplicación._
 
-Para construir la versión Dockerizada del proyecto, ejecute
-
+```yaml
+  #MariaDB configuration.
+  datasource:
+    username: root
+    password: p@ssw0rd
+    url: jdbc:mariadb://localhost:3306/workshop
+    driver-class-name: org.mariadb.jdbc.Driver
 ```
-mvn clean package -Pproduction
-docker-compose -f docker-compose-full.yml up -d 
-```
 
-Una vez que la imagenes de Docker estén correctamente creada, puede probarla localmente accediendo
+## Implementación en producción usando Docker
+
+Para realizar el despliegue en un entorno de producción en Docker, se tienen dos escenarios posibles. Pero antes de
+proceder,
+es imperativo ejecutar el comando `mvnw clean package -Pproduction` en entornos Windows, o `./mvnw clean package
+-Pproduction` en Mac y Linux.
+
+- El primer escenario implica ejecutar el comando `docker-compose -f docker-compose-prod up -d`, donde se pondrá en
+  marcha los servicios de mariadb y workshopapp.
+
+- En el segundo escenario, al ejecutar el comando `docker-compose -f docker-compose-prod-traefik up -d`, se incorpora
+  Traefik para llevar a cabo una prueba de concepto de un proxy inverso. En caso de optar por esta opción, es crucial
+  recordar modificar el archivo hosts para apuntar `127.0.0.1` a `workshop.local`, o al nombre que haya definido en el
+  label `
+  traefik.http.routers.workshop.rule=Host(...)`. Este ajuste es esencial para permitir la ejecución de la aplicación en
+  el dominio local y habilitar la funcionalidad del proxy inverso proporcionada por Traefik.
+
+Una vez que la imagenes de Docker estén correctamente creada, puede probarla localmente accediendo.
+
+[http://workshop.local](http://workshop.local)
 
 ```
 http://workshop.local

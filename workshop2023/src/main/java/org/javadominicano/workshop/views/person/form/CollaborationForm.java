@@ -20,7 +20,7 @@ import org.javadominicano.workshop.data.service.PersonService;
 public class CollaborationForm extends AbstractForm {
 
     private final CollaborationBinder<Person> binder;
-
+// mvn clean package -Pproduction
     public CollaborationForm(PersonService personService) {
         super(personService);
 
